@@ -15,3 +15,7 @@ Utilized these external resources while creating this project for personal use:
 -https://www.pythonanywhere.com/
 
 -https://developer.marvel.com/
+
+-https://i.annihil.us/u/prod/marvel/images/OpenGraph-TW-1200x630.jpg
+
+-https://iconscout.com/icon/captain-america-marvel-superhero-earth-saver-avenger
