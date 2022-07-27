@@ -27,23 +27,24 @@
           <img src="{% static 'marvelProject/logo.png' %}" alt="..." height="24">
         </li></a>
         <li><a href="https://marvel.joshahles.com/">Search</a></li>
-        <li><a href="https://marvel.joshahles.com/search-results">View Team</a></li>
+        <li><a href="https://marvel.joshahles.com/searchresults">View Team</a></li>
         <li><a href="https://marvel.joshahles.com/info">Info</a></li>
 
       </ul>
       
     </nav>
     <div class="s01">
-      <form>
+      <form action="{% url 'searchresults' %}">
+        {% csrf_token %}
         <fieldset>
           <legend><b>Build Your Superhero Team</b></legend>
         </fieldset>
         <div class="inner-form">
           <div class="input-field first-wrap">
-            <input id="search" type="text" placeholder="Who are you looking for?" />
+            <input type="text" placeholder="Who are you looking for?" name="hero" />
           </div>
           <div class="input-field third-wrap">
-            <button class="btn-search" type="button">Search</button>
+            <button class="btn-search" type="submit">Search</button>
           </div>
         </div>
       </form>
