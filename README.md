@@ -19,3 +19,5 @@ Utilized these external resources while creating this project for personal use:
 -https://i.annihil.us/u/prod/marvel/images/OpenGraph-TW-1200x630.jpg
 
 -https://iconscout.com/icon/captain-america-marvel-superhero-earth-saver-avenger
+
+-https://colorlib.com/wp/template/carousel-06/
