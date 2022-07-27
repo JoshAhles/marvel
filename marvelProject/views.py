@@ -21,3 +21,8 @@ def searchresults(request):
 def info(request):
     context = {}
     return render(request, 'info.html', context)
+
+
+def test(request):
+    context = {}
+    return render(request, 'test.html', context)
