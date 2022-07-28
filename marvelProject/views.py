@@ -1,6 +1,7 @@
 from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 # from marvel import Marvel
 from marvel import Marvel
 from marvelProject.keys import *
@@ -21,14 +22,31 @@ def searchresults(request):
 
     requestedCharacter = character.all(name = {hero_name})["data"]["results"]
 
-    heroName = requestedCharacter[0]["name"]
+    # heroName = requestedCharacter[0]["name"]
 
-    heroDescription = requestedCharacter[0]["description"]
+    # heroDescription = requestedCharacter[0]["description"]
 
-    heroImage = requestedCharacter[0]["thumbnail"]["path"]
-    heroImage += "."
-    heroImage += requestedCharacter[0]["thumbnail"]["extension"]
-    print(heroImage)
+    #error handling for character search
+    try :
+        heroName = requestedCharacter[0]["name"]
+    except IndexError:
+        hero_name = "INVALID"
+        return HttpResponseRedirect("/")
+
+    try :
+        heroDescription = requestedCharacter[0]["description"]
+    except IndexError:
+        heroDescription = ""
+
+    try :
+        heroImage = requestedCharacter[0]["thumbnail"]["path"]
+        heroImage += "."
+        heroImage += requestedCharacter[0]["thumbnail"]["extension"]
+    except IndexError:
+        heroImage = ""
+
+
+    # print(heroImage)
 
     # def superHeroData():
     #     superHero = dict();
