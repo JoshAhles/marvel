@@ -6,7 +6,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 60vh;
   }
   
   .card{
@@ -14,7 +14,7 @@ body{
     border-radius: 50px;
     overflow: hidden;
     flex: 15%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 40vh);
     margin: 15px;
     cursor: pointer;
     transition: all 1.5s;
