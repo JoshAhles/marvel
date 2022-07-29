@@ -6,6 +6,21 @@ from django.http import HttpResponseRedirect
 from marvel import Marvel
 from marvelProject.keys import *
 import requests
+import pyrebase
+
+#setting up firebase config
+#python dictionary
+config={
+
+    "apiKey": "AIzaSyDwOqINChKrC-YH0d9NEWFrNrQWqW65krg",
+    "authDomain": "marvel-97d87.firebaseapp.com",
+    "databaseURL": "https://marvel-97d87-default-rtdb.firebaseio.com",
+    "projectId": "marvel-97d87",
+    "storageBucket": "marvel-97d87.appspot.com",
+    "messagingSenderId": "610646675959",
+    "appId": "1:610646675959:web:9be",
+
+}
 
 
 # Create your views here.
@@ -62,7 +77,19 @@ def info(request):
     return render(request, 'info.html', context)
 
 
+#authenticate the firebase
+firebase = pyrebase.initialize_app(config)
+authe = firebase.auth()
+#all database data stored here 
+database = firebase.database()
 
+def viewTeam(request):
+    addedHeroName = database.child('Data').child('Hero').child('Name').get().val
+    addedHeroImage = database.child('Data').child('Hero').child('Image').get().val
+    return render(request, 'viewteam.html', {
+        "addedHeroName":addedHeroName,
+        "addedHeroImage":addedHeroImage
+    })
 
 
 
