@@ -84,8 +84,8 @@ authe = firebase.auth()
 database = firebase.database()
 
 def viewTeam(request):
-    addedHeroName = database.child('Data').child('Hero').child('Name').get().val
-    addedHeroImage = database.child('Data').child('Hero').child('Image').get().val
+    addedHeroName = database.child('Data').child('Name').get().val
+    addedHeroImage = database.child('Data').child('Image').get().val
     return render(request, 'viewteam.html', {
         "addedHeroName":addedHeroName,
         "addedHeroImage":addedHeroImage

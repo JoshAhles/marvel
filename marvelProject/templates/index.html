@@ -27,9 +27,9 @@
         <li><a class="navbar-brand" href="#">
           <img src="{% static 'marvelProject/logo.png' %}" alt="..." height="24">
         </li></a>
-        <li><a href="https://marvel.joshahles.com/">Search</a></li>
-        <li><a href="https://marvel.joshahles.com/searchresults">View Team</a></li>
-        <li><a href="https://marvel.joshahles.com/info">Info</a></li>
+        <li><a href="/">Search</a></li>
+        <li><a href="/viewteam">View Team</a></li>
+        <li><a href="/info">Info</a></li>
 
       </ul>
       
@@ -42,6 +42,7 @@
         </fieldset>
         <div class="inner-form">
           <div class="input-field first-wrap">
+            <!-- can use name same way on my other page to send off data to firebase after sending to views.py -->
             <input type="text" placeholder="Who are you looking for?" name="hero" />
           </div>
           <div class="input-field third-wrap">
