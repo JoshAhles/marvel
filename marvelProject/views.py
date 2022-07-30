@@ -83,6 +83,8 @@ authe = firebase.auth()
 #all database data stored here 
 database = firebase.database()
 
+countIt = 0
+
 def viewteam(request):
     #all i need to push out is hero and image on button click from search result
     #for ease of implementation, should copy same logic for how I pull in the data to the search result from the first page
@@ -97,7 +99,24 @@ def viewteam(request):
     # character = marvel.characters
     heroAdded = request.GET['heroNameToAdd']
 
+    marvel = Marvel(PUBLIC_KEY = PUBLIC_KEY, 
+            PRIVATE_KEY = PRIVATE_KEY) 
+
+    character = marvel.characters
+
+    requestedCharacter = character.all(name = {heroAdded})["data"]["results"]
+
+    imageAdded = requestedCharacter[0]["thumbnail"]["path"]
+    imageAdded += "."
+    imageAdded += requestedCharacter[0]["thumbnail"]["extension"]
+
     # requestedCharacter = character.all(name = {hero_name})["data"]["results"]
+
+    data = {"Name": heroAdded, "Image": imageAdded}
+    global countIt
+    
+    countIt = countIt + 1
+    database.child("Heros").child(countIt).set(data)
     
     addedHeroName = database.child('Name').get().val
     addedHeroImage = database.child('Image').get().val
@@ -105,5 +124,5 @@ def viewteam(request):
     #     'addedHeroName':addedHeroName,
     #     "addedHeroImage":addedHeroImage
     # })
-    return render(request, 'viewteam.html', {'addedHeroName':heroAdded})
+    return render(request, 'viewteam.html', {'addedHeroName':heroAdded, 'addedHeroImage':imageAdded})
 

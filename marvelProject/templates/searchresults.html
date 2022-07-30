@@ -56,19 +56,7 @@
       <!-- convert entire thing to form, can send over the data easier -->
       <section class="ftco-section">
         <div class="container">
-          <form action="{% url 'viewteam' %}">
-              {% csrf_token %}
-                  
-                <div class="inner-form">
-                  
-                              <div class="input-field first-wrap">
-                                <input type="text" style="text-transform:uppercase" value="{{hero}}" name="heroNameToAdd" />
-                              </div>
-                              <div class="input-field third-wrap">
-                                <button class="btn-search" type="submit">Search</button>
-                              </div>
-                            </div>
-                          </form>
+          
 
      
           <div class="row">
@@ -93,15 +81,16 @@
                         <br>
                         <br>
                         <p>
-                          
-                            <form action="{% url 'viewteam' %}">
-                          
+
+                          <form action="{% url 'viewteam' %}">
+                            {% csrf_token %}
+                                  <div class="input-field first-wrap">
+                                              <input type="hidden" style="text-transform:uppercase" value="{{hero}}" name="heroNameToAdd" />
+                                            </div>
                                 <div class="input-field third-wrap">
                                   <button class="btn-search" type="submit">Add Superhero to Team</button>
                               </div>
                             </form>
-           
-
 
                           <a href="/"><button type="button" class="btn btn-outline-dark mb-2 py-3 px-4"> <- Back to Search</button></a>
                         </p>
