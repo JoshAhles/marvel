@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link href="{% static 'marvelProject/main.css' %}" rel="stylesheet" />
     <link href="{% static 'marvelProject/team.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/style.css' %}">
+
 
     <meta property="og:image" content="{% static 'marvelProject/shareImage.jpeg' %}">
     <meta property="og:image:type" content="image/png">
@@ -54,6 +56,7 @@
         <div class="card" id="card1">
           <img src="{{addedHeroImage}}">
           <p>{{addedHeroName}}</p>
+          <button>Delete</button>
         </div>
         <div class="card" id="card2">
             <img src="{{addedHeroImage}}">

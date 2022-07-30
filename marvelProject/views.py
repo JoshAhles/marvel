@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.utils.datastructures import MultiValueDictKeyError
 # from marvel import Marvel
 from marvel import Marvel
 from marvelProject.keys import *
@@ -116,8 +117,11 @@ def viewteam(request):
     global countIt
     
     countIt = countIt + 1
-    database.child("Heros").child(countIt).set(data)
     
+    database.child("Heros").child(countIt).set(data)
+
+    #if coming from home page, don't send the data 
+
     addedHeroName = database.child('Name').get().val
     addedHeroImage = database.child('Image').get().val
     # return render(request, 'viewteam.html', {
