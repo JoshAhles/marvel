@@ -53,24 +53,46 @@
            
              <!-- starting to set up layout for the heros in Team -->
     <div class="container">
-    
 
+        <!-- if 0 values in data.items, show NONE -->
+        <!-- {% if data|length is 1}  -->
+
+
+        {% if data|length is 0 %} 
+        <div class="card" id="card1">
+            <img src="{% static "marvelProject/marvelLogoAlt.jpg"%}">
+            <p>NO HERO ADDED</p>
+            <!-- <p>{{data|length}}</p>  -->
+  
+            <form action="{% url 'delete' %}">
+              {% csrf_token %}
+                    <div class="input-field first-wrap">
+                                <input type="hidden" style="text-transform:uppercase" value="{{key}}" name="heroNameToDelete" />
+                      </div>
+                  
+              </form>
+        </div>
+        
+        {% else %}
         {% for key, value in data.items %}
         <div class="card" id="card1">
           <img src="{{value}}">
           <p>{{key}}</p>
-<!-- 
-          <form action="{% url 'viewteam' %}">
+          <!-- <p>{{data|length}}</p>  -->
+
+          <form action="{% url 'delete' %}">
             {% csrf_token %}
                   <div class="input-field first-wrap">
-                              <input type="hidden" style="text-transform:uppercase" value="{{addedHeroName}}" name="heroNameToDelete" />
+                              <input type="hidden" style="text-transform:uppercase" value="{{key}}" name="heroNameToDelete" />
                     </div>
                 <button class="btn" type="submit">Delete</button>
-            </form> -->
+            </form>
 
           <!-- <input type="button" onclick="location.href='/';" value="Delete" /> -->
         </div>
         {% endfor %}
+        {% endif %}
+   
         <!-- <div class="card" id="card2">
             <img src="{{addedHeroImage}}">
             <p>{{addedHeroName}}</p>

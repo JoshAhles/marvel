@@ -26,8 +26,7 @@ config={
 
 
 
-def delete(request):
-    return render(request, 'delete.html')
+
 
 # Create your views here.
 def index(request):
@@ -107,11 +106,18 @@ def add(request):
     data = {"Name": heroAdded, "Image": imageAdded}
     global countIt
     
-    countIt = countIt + 1
+    # countIt = countIt + 1
+    entry = heroAdded
     
-    database.child("Heros").child(countIt).set(data)
+    database.child("Heros").child(entry).set(data)
 
     return render(request, 'add.html')
+
+def delete(request):
+    heroDelete = request.GET['heroNameToDelete']
+    
+    database.child("Heros").child(heroDelete).remove()
+    return render(request, 'delete.html')
 
 def viewteam(request):
 
@@ -121,12 +127,12 @@ def viewteam(request):
     valuesDb = []
 
     herosDb = database.child("Heros").get()
-    for heroIn in herosDb.each()[1:]:
+    for heroIn in herosDb.each():
         values = heroIn.val()
-        print(values["Name"])
+        # print(values["Name"])
         keysDb.append(values["Name"])
         databaseHeroName = values["Name"]
-        print(values["Image"])
+        # print(values["Image"])
         valuesDb.append(values["Image"])
         databaseHeroImage = values["Image"]
         # parser = json.loads(str(heroIn.val()))
