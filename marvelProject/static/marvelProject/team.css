@@ -51,7 +51,7 @@ body{
   }
   
   .card:hover{
-    flex: 50vw;
+    flex: 35vw;
   }
   
   .card img{

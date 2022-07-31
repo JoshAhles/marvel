@@ -56,7 +56,16 @@
         <div class="card" id="card1">
           <img src="{{addedHeroImage}}">
           <p>{{addedHeroName}}</p>
-          <button>Delete</button>
+
+          <!-- <form action="{% url 'viewteam' %}">
+            {% csrf_token %}
+                  <div class="input-field first-wrap">
+                              <input type="hidden" style="text-transform:uppercase" value="{{addedHeroName}}" name="heroNameToDelete" />
+                    </div>
+                <button class="btn" type="submit">Delete</button>
+            </form> -->
+
+          <!-- <input type="button" onclick="location.href='/';" value="Delete" /> -->
         </div>
         <div class="card" id="card2">
             <img src="{{addedHeroImage}}">

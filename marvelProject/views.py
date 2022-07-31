@@ -7,6 +7,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from marvel import Marvel
 from marvelProject.keys import *
 import requests
+import json
 import pyrebase
 
 #setting up firebase config
@@ -100,6 +101,7 @@ def viewteam(request):
     # character = marvel.characters
     heroAdded = request.GET['heroNameToAdd']
 
+
     marvel = Marvel(PUBLIC_KEY = PUBLIC_KEY, 
             PRIVATE_KEY = PRIVATE_KEY) 
 
@@ -120,6 +122,36 @@ def viewteam(request):
     
     database.child("Heros").child(countIt).set(data)
 
+
+    # inventory = datab.child("Inventories").get()
+    # for business in inventory.each():
+    #     print(business.val())
+
+    # context = {
+    #     "data" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    # }
+
+
+
+    herosDb = database.child("Heros").get()
+    for heroIn in herosDb.each()[1:]:
+        values = heroIn.val()
+        print(values["Name"])
+        # parser = json.loads(str(heroIn.val()))
+        # print(parser["Name"])
+        
+
+    
+ 
+
+        #convert the data retrieved into a dictionary, then access the dict from the page
+
+
+    # all_users = database.child("Heros").child("Name").get()
+    # for user in all_users.each():
+    #     print(user.val()) # {name": "Mortimer 'Morty' Smith"}
+ 
+    # database.child("Hero").child(heroNameToDelete).remove()
     #if coming from home page, don't send the data 
 
     addedHeroName = database.child('Name').get().val
@@ -129,4 +161,8 @@ def viewteam(request):
     #     "addedHeroImage":addedHeroImage
     # })
     return render(request, 'viewteam.html', {'addedHeroName':heroAdded, 'addedHeroImage':imageAdded})
+
+
+    #on button click, reload page and delete selected hero
+    #when coming from other page, add hero
 
