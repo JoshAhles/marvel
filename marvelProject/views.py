@@ -133,16 +133,26 @@ def viewteam(request):
 
 
 
+
     herosDb = database.child("Heros").get()
     for heroIn in herosDb.each()[1:]:
         values = heroIn.val()
         print(values["Name"])
+        databaseHeroName = values["Name"]
+        print(values["Image"])
+        databaseHeroImage = values["Image"]
         # parser = json.loads(str(heroIn.val()))
         # print(parser["Name"])
-        
-
-    
  
+    context = {
+
+        #make the dict outside, then send it in here
+
+        # "data" : database.child("Heros").get()
+        "data" : database.child("Heros").get()[1:],
+
+
+    }
 
         #convert the data retrieved into a dictionary, then access the dict from the page
 
@@ -160,7 +170,8 @@ def viewteam(request):
     #     'addedHeroName':addedHeroName,
     #     "addedHeroImage":addedHeroImage
     # })
-    return render(request, 'viewteam.html', {'addedHeroName':heroAdded, 'addedHeroImage':imageAdded})
+    return render(request, 'viewteam.html', context)
+    # {'addedHeroName':heroAdded, 'addedHeroImage':imageAdded, 'databaseHeroName':databaseHeroName, 'databaseHeroImage':databaseHeroImage})
 
 
     #on button click, reload page and delete selected hero

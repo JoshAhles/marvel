@@ -53,9 +53,12 @@
            
              <!-- starting to set up layout for the heros in Team -->
     <div class="container">
+    
+
+        {% for i in data %}
         <div class="card" id="card1">
-          <img src="{{addedHeroImage}}">
-          <p>{{addedHeroName}}</p>
+          <img src="{{i}}">
+          <p>{{i}}</p>
 
           <!-- <form action="{% url 'viewteam' %}">
             {% csrf_token %}
@@ -67,7 +70,8 @@
 
           <!-- <input type="button" onclick="location.href='/';" value="Delete" /> -->
         </div>
-        <div class="card" id="card2">
+        {% endfor %}
+        <!-- <div class="card" id="card2">
             <img src="{{addedHeroImage}}">
             <p>{{addedHeroName}}</p>
         </div>
@@ -82,7 +86,7 @@
         <div class="card" id="card5">
             <img src="{{addedHeroImage}}">
             <p>{{addedHeroName}}</p>
-        </div>
+        </div> -->
       </div>
 
          
