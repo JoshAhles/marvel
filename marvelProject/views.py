@@ -127,16 +127,18 @@ def viewteam(request):
     valuesDb = []
 
     herosDb = database.child("Heros").get()
-    for heroIn in herosDb.each():
-        values = heroIn.val()
-        # print(values["Name"])
-        keysDb.append(values["Name"])
-        databaseHeroName = values["Name"]
-        # print(values["Image"])
-        valuesDb.append(values["Image"])
-        databaseHeroImage = values["Image"]
-        # parser = json.loads(str(heroIn.val()))
-        # print(parser["Name"])
+
+    if herosDb.each() is not None: 
+        for heroIn in herosDb.each():
+            values = heroIn.val()
+            # print(values["Name"])
+            keysDb.append(values["Name"])
+            databaseHeroName = values["Name"]
+            # print(values["Image"])
+            valuesDb.append(values["Image"])
+            databaseHeroImage = values["Image"]
+            # parser = json.loads(str(heroIn.val()))
+            # print(parser["Name"])
 
     for i in range(len(keysDb)):
         dicts[keysDb[i]] = valuesDb[i]

@@ -57,6 +57,22 @@
         <!-- if 0 values in data.items, show NONE -->
         <!-- {% if data|length is 1}  -->
 
+        <div class="card0" id="card0">
+            <img src="">
+            <p>Placeholder</p>
+            <!-- <p>{{data|length}}</p>  -->
+  
+            <form action="{% url 'delete' %}">
+              {% csrf_token %}
+                    <div class="input-field first-wrap">
+                                <input type="hidden" style="text-transform:uppercase" value=" " name="heroNameToDelete" />
+                      </div>
+                  <button class="btn" type="submit">Delete</button>
+              </form>
+  
+            <!-- <input type="button" onclick="location.href='/';" value="Delete" /> -->
+          </div>
+
 
         {% if data|length is 0 %} 
         <div class="card" id="card1">
