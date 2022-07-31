@@ -25,6 +25,10 @@ config={
 }
 
 
+
+def delete(request):
+    return render(request, 'delete.html')
+
 # Create your views here.
 def index(request):
     context = {}
@@ -87,21 +91,8 @@ database = firebase.database()
 
 countIt = 0
 
-def viewteam(request):
-    #all i need to push out is hero and image on button click from search result
-    #for ease of implementation, should copy same logic for how I pull in the data to the search result from the first page
-    # databaseAddHero = request.GET['heroNameToAdd']
-    # databaseAddImage = request.GET['heroImageToAdd']
-    # print(databaseAddHero)
-
-    # addedHeroName = request.GET['heroNameToAdd']
-    # marvel = Marvel(PUBLIC_KEY = PUBLIC_KEY, 
-    #         PRIVATE_KEY = PRIVATE_KEY) 
-
-    # character = marvel.characters
+def add(request):
     heroAdded = request.GET['heroNameToAdd']
-
-
     marvel = Marvel(PUBLIC_KEY = PUBLIC_KEY, 
             PRIVATE_KEY = PRIVATE_KEY) 
 
@@ -113,8 +104,6 @@ def viewteam(request):
     imageAdded += "."
     imageAdded += requestedCharacter[0]["thumbnail"]["extension"]
 
-    # requestedCharacter = character.all(name = {hero_name})["data"]["results"]
-
     data = {"Name": heroAdded, "Image": imageAdded}
     global countIt
     
@@ -122,20 +111,14 @@ def viewteam(request):
     
     database.child("Heros").child(countIt).set(data)
 
+    return render(request, 'add.html')
 
-    # inventory = datab.child("Inventories").get()
-    # for business in inventory.each():
-    #     print(business.val())
-
-    # context = {
-    #     "data" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    # }
+def viewteam(request):
 
     dicts = {}
 
     keysDb = [] 
     valuesDb = []
-
 
     herosDb = database.child("Heros").get()
     for heroIn in herosDb.each()[1:]:

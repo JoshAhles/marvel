@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/style.css' %}">
 
   
-    <title>{{hero}}</title>
+    <title>Hero Added</title>
     <meta property="og:image" content="{% static 'marvelProject/shareImage.jpeg' %}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1024">
@@ -65,34 +65,19 @@
               <div class="featured-carousel owl-carousel">
                 <div class="item">
                   <div class="work-wrap d-md-flex">
-                    <div class="img order-md-last" style="background-image: url({{image}});" name="heroImageToAdd"></div>
+                    <div class="img order-md-last" style="background-image: url('{% static "marvelProject/marvelLogoAlt.jpg"%}')"; name="heroImageToAdd"></div>
                     <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
                       <div class="desc w-100">
-                        <h2 class="mb-4"><b>{{hero}}</b></h2>
+                        <h2 class="mb-4"><b>Success <br>-----------<br> Hero Added</b></h2>
                         <br>
-                        
-                        <div class="row justify-content-end">
-                          <div class="col-xl-8">
-                            <p>{{description}}</p>
-                            <br>
-                            <p><b>Data provided by Marvel. © 2014 Marvel</b></p>
-                          </div>
-                        </div>
                         <br>
                         <br>
                         <p>
 
-                          <form action="{% url 'add' %}">
-                            {% csrf_token %}
-                                  <div class="input-field first-wrap">
-                                              <input type="hidden" style="text-transform:uppercase" value="{{hero}}" name="heroNameToAdd" />
-                                            </div>
-                                <div class="input-field third-wrap">
-                                  <button class="btn-search" type="submit">Add Superhero to Team</button>
-                              </div>
-                            </form>
+                        <a href="/"><button type="button" class="btn btn-outline-dark mb-2 py-3 px-4"> <- Back to Search</button></a>
 
-                          <a href="/"><button type="button" class="btn btn-outline-dark mb-2 py-3 px-4"> <- Back to Search</button></a>
+                        <a href="/viewteam"><button type="button" class="btn btn-outline-dark mb-2 py-3 px-4"> View Superhero Team</button></a>
+                        
                         </p>
                       </div>
                     </div>
