@@ -131,26 +131,34 @@ def viewteam(request):
     #     "data" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     # }
 
+    dicts = {}
 
+    keysDb = [] 
+    valuesDb = []
 
 
     herosDb = database.child("Heros").get()
     for heroIn in herosDb.each()[1:]:
         values = heroIn.val()
         print(values["Name"])
+        keysDb.append(values["Name"])
         databaseHeroName = values["Name"]
         print(values["Image"])
+        valuesDb.append(values["Image"])
         databaseHeroImage = values["Image"]
         # parser = json.loads(str(heroIn.val()))
         # print(parser["Name"])
+
+    for i in range(len(keysDb)):
+        dicts[keysDb[i]] = valuesDb[i]
  
     context = {
 
         #make the dict outside, then send it in here
 
         # "data" : database.child("Heros").get()
-        "data" : database.child("Heros").get()[1:],
-
+        # "data" : database.child("Heros").get()[1:],
+        "data" : dicts
 
     }
 
