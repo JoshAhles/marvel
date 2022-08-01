@@ -57,11 +57,7 @@
     <!-- convert entire thing to form, can send over the data easier -->
     <section class="ftco-section">
       <div class="container">
-
-
-
         <div class="row">
-
           <div class="col-md-12">
             <div class="featured-carousel owl-carousel">
               <div class="item">
@@ -71,18 +67,17 @@
                     <div class="desc w-100">
                       <h2 class="mb-4"><b>{{hero}}</b></h2>
                       <br>
-
                       <div class="row justify-content-end">
                         <div class="col-xl-8">
                           <p>{{description}}</p>
                           <br>
+                          <!-- attribute added as required by marvel specs -->
                           <p><b>Data provided by Marvel. © 2014 Marvel</b></p>
                         </div>
                       </div>
                       <br>
                       <br>
                       <p>
-
                       <form action="{% url 'add' %}">
                         {% csrf_token %}
                         <div class="input-field first-wrap">
@@ -92,7 +87,6 @@
                           <button class="btn-search" type="submit">Add Superhero to Team</button>
                         </div>
                       </form>
-
                       <a href="/"><button type="button" class="btn btn-outline-dark mb-2 py-3 px-4">
                           <- Back to Search</button></a>
                       </p>
@@ -100,9 +94,6 @@
                   </div>
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>
@@ -119,6 +110,9 @@
 
     <script src="{% static 'marvelProject/sresult_js/main.js' %}"></script>
   </div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
+
+<!-- attribute added as required -->
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

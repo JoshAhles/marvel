@@ -18,11 +18,11 @@
     <meta property="og:image:height" content="1024">
     <title>Team</title>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -37,10 +37,6 @@
       </ul>
       
     </nav>
-    <!-- <div class="s01">
-      <p>{{addedHeroName}}</p>
-      <img src="{{addedHeroImage}}"</img>
-    </div> -->
 
       <div class="s01">
         <form>
@@ -50,16 +46,12 @@
           </fieldset>
           <div class="inner-form">
            
-             <!-- starting to set up layout for the heros in Team -->
+    <!-- buffer -->
     <div class="container">
-
-        <!-- if 0 values in data.items, show NONE -->
-        <!-- {% if data|length is 1}  -->
-
+        <!-- buffer should account for the delete issue on first item -->
         <div class="card0" id="card0">
             <img src="">
             <p>Placeholder</p>
-            <!-- <p>{{data|length}}</p>  -->
   
             <form action="{% url 'delete' %}">
               {% csrf_token %}
@@ -68,62 +60,37 @@
                       </div>
                   <button class="btn" type="submit">Delete</button>
               </form>
-  
-            <!-- <input type="button" onclick="location.href='/';" value="Delete" /> -->
-          </div>
+            </div>
+            <!-- end buffer -->
 
-
+        <!-- django logic for showing no hero if there are none added to the firebase -->
         {% if data|length is 0 %} 
         <div class="card" id="card1">
             <img src="{% static "marvelProject/marvelLogoAlt.jpg"%}">
             <p>NO HERO ADDED</p>
-            <!-- <p>{{data|length}}</p>  -->
-  
             <form action="{% url 'delete' %}">
               {% csrf_token %}
                     <div class="input-field first-wrap">
                                 <input type="hidden" style="text-transform:uppercase" value="{{key}}" name="heroNameToDelete" />
                       </div>
-                  
               </form>
         </div>
         
+        <!-- logic for if there are heros added in, loop through them all using django to alter html  -->
         {% else %}
         {% for key, value in data.items %}
         <div class="card" id="card1">
           <img src="{{value}}">
           <p>{{key}}</p>
-          <!-- <p>{{data|length}}</p>  -->
-
           <form action="{% url 'delete' %}">
             {% csrf_token %}
                               <input type="hidden" style="text-transform:uppercase" value="{{key}}" name="heroNameToDelete" />
                 <button class="btn" type="submit">Delete</button>
             </form>
-
-          <!-- <input type="button" onclick="location.href='/';" value="Delete" /> -->
         </div>
         {% endfor %}
         {% endif %}
-   
-        <!-- <div class="card" id="card2">
-            <img src="{{addedHeroImage}}">
-            <p>{{addedHeroName}}</p>
-        </div>
-        <div class="card" id="card3">
-            <img src="{{addedHeroImage}}">
-            <p>{{addedHeroName}}</p>
-        </div>
-        <div class="card" id="card4">
-            <img src="{{addedHeroImage}}">
-            <p>{{addedHeroName}}</p>
-        </div>
-        <div class="card" id="card5">
-            <img src="{{addedHeroImage}}">
-            <p>{{addedHeroName}}</p>
-        </div> -->
       </div>
-
          
           </div>
         </form>
