@@ -98,9 +98,7 @@
 
           <form action="{% url 'delete' %}">
             {% csrf_token %}
-                  <div class="input-field first-wrap">
                               <input type="hidden" style="text-transform:uppercase" value="{{key}}" name="heroNameToDelete" />
-                    </div>
                 <button class="btn" type="submit">Delete</button>
             </form>
 

@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+#setting up URL paths for the pages
 urlpatterns = [
     path('', views.index, name='index'),
     path('searchresults', views.searchresults, name='searchresults'),

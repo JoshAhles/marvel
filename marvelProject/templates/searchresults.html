@@ -1,121 +1,125 @@
 {% load static %}
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link rel="icon" type="image/x-icon" href="{% static 'marvelProject/captain.png' %}">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link href="{% static 'marvelProject/main.css' %}" rel="stylesheet" />
 
-    <!--adding in single hero view settings now-->
-    <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/owl.theme.default.min.css' %}">
-    <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/style.css' %}">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="colorlib.com">
+  <link rel="icon" type="image/x-icon" href="{% static 'marvelProject/captain.png' %}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link href="{% static 'marvelProject/main.css' %}" rel="stylesheet" />
 
-  
-    <title>{{hero}}</title>
-    <meta property="og:image" content="{% static 'marvelProject/shareImage.jpeg' %}">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
+  <!--adding in single hero view settings now-->
+  <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'marvelProject/sresult_css/style.css' %}">
 
-    <style>
+
+  <title>{{hero}}</title>
+  <meta property="og:image" content="{% static 'marvelProject/shareImage.jpeg' %}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <style>
     .s01 {
 
-      box-shadow:inset 0 0 0 2000px rgba(0, 0, 26, 0.8) !important;
-        
+      box-shadow: inset 0 0 0 2000px rgba(0, 0, 26, 0.8) !important;
+
     }
-    </style>
- 
-    <nav class="navbar navbar-inverse">
-      <ul class="nav navbar-nav">
+  </style>
 
-        <li><a class="navbar-brand" href="/">
+  <nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+
+      <li><a class="navbar-brand" href="/">
           <img src="{% static 'marvelProject/logo.png' %}" alt="..." height="24">
-        </li></a>
-        <li><a href="/">Search</a></li>
-        <li><a href="/viewteam">View Team</a></li>
-        <li><a href="/info">Info</a></li>
+      </li></a>
+      <li><a href="/">Search</a></li>
+      <li><a href="/viewteam">View Team</a></li>
+      <li><a href="/info">Info</a></li>
 
-      </ul>
-      
-    </nav>
+    </ul>
 
-    <div class="s01">
+  </nav>
 
-      <!-- convert entire thing to form, can send over the data easier -->
-      <section class="ftco-section">
-        <div class="container">
-          
+  <div class="s01">
 
-     
-          <div class="row">
-            
-            <div class="col-md-12">
-              <div class="featured-carousel owl-carousel">
-                <div class="item">
-                  <div class="work-wrap d-md-flex">
-                    <div class="img order-md-last" style="background-image: url({{image}});" name="heroImageToAdd"></div>
-                    <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
-                      <div class="desc w-100">
-                        <h2 class="mb-4"><b>{{hero}}</b></h2>
-                        <br>
-                        
-                        <div class="row justify-content-end">
-                          <div class="col-xl-8">
-                            <p>{{description}}</p>
-                            <br>
-                            <p><b>Data provided by Marvel. © 2014 Marvel</b></p>
-                          </div>
+    <!-- convert entire thing to form, can send over the data easier -->
+    <section class="ftco-section">
+      <div class="container">
+
+
+
+        <div class="row">
+
+          <div class="col-md-12">
+            <div class="featured-carousel owl-carousel">
+              <div class="item">
+                <div class="work-wrap d-md-flex">
+                  <div class="img order-md-last" style="background-image: url({{image}});" name="heroImageToAdd"></div>
+                  <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
+                    <div class="desc w-100">
+                      <h2 class="mb-4"><b>{{hero}}</b></h2>
+                      <br>
+
+                      <div class="row justify-content-end">
+                        <div class="col-xl-8">
+                          <p>{{description}}</p>
+                          <br>
+                          <p><b>Data provided by Marvel. © 2014 Marvel</b></p>
                         </div>
-                        <br>
-                        <br>
-                        <p>
-
-                          <form action="{% url 'add' %}">
-                            {% csrf_token %}
-                                  <div class="input-field first-wrap">
-                                              <input type="hidden" style="text-transform:uppercase" value="{{hero}}" name="heroNameToAdd" />
-                                            </div>
-                                <div class="input-field third-wrap">
-                                  <button class="btn-search" type="submit">Add Superhero to Team</button>
-                              </div>
-                            </form>
-
-                          <a href="/"><button type="button" class="btn btn-outline-dark mb-2 py-3 px-4"> <- Back to Search</button></a>
-                        </p>
                       </div>
+                      <br>
+                      <br>
+                      <p>
+
+                      <form action="{% url 'add' %}">
+                        {% csrf_token %}
+                        <div class="input-field first-wrap">
+                          <input type="hidden" style="text-transform:uppercase" value="{{hero}}" name="heroNameToAdd" />
+                        </div>
+                        <div class="input-field third-wrap">
+                          <button class="btn-search" type="submit">Add Superhero to Team</button>
+                        </div>
+                      </form>
+
+                      <a href="/"><button type="button" class="btn btn-outline-dark mb-2 py-3 px-4">
+                          <- Back to Search</button></a>
+                      </p>
                     </div>
                   </div>
                 </div>
-                
-                
-                
               </div>
+
+
+
             </div>
           </div>
         </div>
-      </section>
-  
-      <script src="{% static 'marvelProject/sresult_js/jquery.min.js' %}"></script>
-    
-      <script src="{% static 'marvelProject/sresult_js/popper.js' %}"></script>
-    
-      <script src="{% static 'marvelProject/sresult_js/bootstrap.min.js' %}"></script>
-  
-      <script src="{% static 'marvelProject/sresult_js/owl.carousel.min.js' %}"></script>
-  
-      <script src="{% static 'marvelProject/sresult_js/main.js' %}"></script>
-    </div>    
-  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+      </div>
+    </section>
+
+    <script src="{% static 'marvelProject/sresult_js/jquery.min.js' %}"></script>
+
+    <script src="{% static 'marvelProject/sresult_js/popper.js' %}"></script>
+
+    <script src="{% static 'marvelProject/sresult_js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'marvelProject/sresult_js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'marvelProject/sresult_js/main.js' %}"></script>
+  </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>

@@ -1,56 +1,60 @@
 {% load static %}
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link rel="icon" type="image/x-icon" href="{% static 'marvelProject/captain.png' %}">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link href="{% static 'marvelProject/main.css' %}" rel="stylesheet" />
-    <meta property="og:image" content="{% static 'marvelProject/shareImage.jpeg' %}">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="1024">
-    <title>I Need A Hero (or two) - Josh Ahles</title>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse">
-      <ul class="nav navbar-nav">
 
-        <li><a class="navbar-brand" href="/">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="colorlib.com">
+  <link rel="icon" type="image/x-icon" href="{% static 'marvelProject/captain.png' %}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link href="{% static 'marvelProject/main.css' %}" rel="stylesheet" />
+  <meta property="og:image" content="{% static 'marvelProject/shareImage.jpeg' %}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <title>I Need A Hero (or two) - Josh Ahles</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+
+      <li><a class="navbar-brand" href="/">
           <img src="{% static 'marvelProject/logo.png' %}" alt="..." height="24">
-        </li></a>
-        <li><a href="/">Search</a></li>
-        <li><a href="/viewteam">View Team</a></li>
-        <li><a href="/info">Info</a></li>
+      </li></a>
+      <li><a href="/">Search</a></li>
+      <li><a href="/viewteam">View Team</a></li>
+      <li><a href="/info">Info</a></li>
 
-      </ul>
-      
-    </nav>
-    <div class="s01">
-      <form action="{% url 'searchresults' %}">
-        {% csrf_token %}
-        <fieldset>
-          <legend><b>Build Your Superhero Team</b></legend>
-        </fieldset>
-        <div class="inner-form">
-          <div class="input-field first-wrap">
-            <!-- can use name same way on my other page to send off data to firebase after sending to views.py -->
-            <input type="text" style="text-transform:uppercase" placeholder="Who are you looking for?" name="hero" required/>
-          </div>
-          <div class="input-field third-wrap">
-            <button class="btn-search" type="submit">Search</button>
-          </div>
+    </ul>
+
+  </nav>
+  <div class="s01">
+    <form action="{% url 'searchresults' %}">
+      {% csrf_token %}
+      <fieldset>
+        <legend><b>Build Your Superhero Team</b></legend>
+      </fieldset>
+      <div class="inner-form">
+        <div class="input-field first-wrap">
+          <!-- can use name same way on my other page to send off data to firebase after sending to views.py -->
+          <input type="text" style="text-transform:uppercase" placeholder="Who are you looking for?" name="hero"
+            required />
         </div>
-      </form>
-    </div>
-    
-  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+        <div class="input-field third-wrap">
+          <button class="btn-search" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
